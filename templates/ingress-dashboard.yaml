@@ -3,9 +3,9 @@ kind: Ingress
 metadata:
   name: tekton-dashboard
   namespace: tekton-pipelines
-annotations:
-  traefik.ingress.kubernetes.io/router.entrypoints: web, websecure  # Specify entry points
-  traefik.ingress.kubernetes.io/router.middlewares: tekton-dashboard-acl@kubernetescrd
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web, websecure  # Specify entry points
+    traefik.ingress.kubernetes.io/router.middlewares: tekton-dashboard-acl@kubernetescrd
 spec:
   tls:
     - hosts:
