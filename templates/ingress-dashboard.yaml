@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tekton-dashboard
+  namespace: tekton-pipelines
+spec:
+  tls:
+    - hosts:
+        - tkn.itlusions.com
+        - tkn.itlusions.nl
+      secretName: tkn-itlusions-com-tls
+  rules:
+  - host: tkn.itlusions.com
+    http:
+      paths:
+      - pathType: ImplementationSpecific
+        backend:
+          service:
+            name: tekton-dashboard
+            port:
+              number: 9097
+  - host: tkn.itlusions.nl
+    http:
+      paths:
+      - pathType: ImplementationSpecific
+        backend:
+          service:
+            name: tekton-dashboard
+            port:
+              number: 9097
