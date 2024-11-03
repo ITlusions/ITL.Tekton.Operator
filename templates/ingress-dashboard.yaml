@@ -6,7 +6,7 @@ metadata:
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: web, websecure  # Specify entry points
     traefik.ingress.kubernetes.io/router.middlewares: tekton-pipelines-tekton-pipelines-acl@kubernetescrd
-    external-dns.alpha.kubernetes.io/hostname: "tkn.apps.public.k8s.int.itlusions.com"
+    external-dns.alpha.kubernetes.io/hostname: tkn.apps.public.k8s.int.itlusions.com
 spec:
   tls:
     - hosts:
@@ -24,6 +24,15 @@ spec:
             port:
               number: 9097
   - host: tkn.itlusions.nl
+    http:
+      paths:
+      - pathType: ImplementationSpecific
+        backend:
+          service:
+            name: tekton-dashboard
+            port:
+              number: 9097
+  - host: tkn.apps.public.k8s.int.itlusions.com
     http:
       paths:
       - pathType: ImplementationSpecific
