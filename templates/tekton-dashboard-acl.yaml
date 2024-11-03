@@ -1,7 +1,8 @@
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: tekton-dashboard-acl
+  name: acl
+  namespace: tekton-pipelines
 spec:
   ipAllowList:
     sourceRange:
