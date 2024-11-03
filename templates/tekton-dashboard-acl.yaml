@@ -6,4 +6,4 @@ spec:
   ipAllowList:
     sourceRange:
       - 127.0.0.1/32
-      - 10.99.2.0/32
+      - 10.99.2.0/24
